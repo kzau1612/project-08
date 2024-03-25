@@ -1157,10 +1157,11 @@ select {
   position: absolute;
   left: 0;
   padding-top: 54px;
-  display: none;
+  width: min(1240px, 100%);
 }
 .dropdown__inner {
   position: relative;
+  max-height: min(582px, 100vh - 158px);
   padding: 30px;
   border-radius: 2rem;
   background: var(--dropdown-bg-color);
@@ -1169,11 +1170,64 @@ select {
 .dropdown__inner::before {
   content: url("../icon/dropdown-arrow.svg");
   position: absolute;
-  z-index: -1;
   top: -13px;
   left: var(--arrow-left-pos);
   translate: -50%;
   filter: var(--dropdown-arrow-color);
+}
+.dropdown .top-menu {
+  height: 100%;
+}
+.dropdown .top-menu__main {
+  width: 292px;
+  height: 100%;
+  border-right: 1px solid var(--top-menu-border-color);
+}
+.dropdown .menu-column {
+  display: flex;
+  column-gap: 14px;
+}
+.dropdown .menu-column__icon {
+  flex-shrink: 0;
+  position: relative;
+  width: 36px;
+  height: 36px;
+}
+.dropdown .menu-column__content {
+  flex: 1;
+}
+.dropdown .menu-column__icon-1 {
+  object-fit: cover;
+  width: 30px;
+  height: 30px;
+}
+.dropdown .menu-column__icon-2 {
+  object-fit: cover;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.dropdown .menu-column__heading {
+  margin-top: 6px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 150%; /* 150% */
+}
+.dropdown .menu-column__list {
+  margin-top: 19px;
+}
+.dropdown .menu-column__link {
+  display: block;
+  padding: 7px 0;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.857%; /* 142.857% */
+}
+.dropdown .menu-column__link:hover {
+  color: #0071dc;
+  font-weight: 500;
 }
 
 html.dark {
@@ -1187,8 +1241,9 @@ html.dark {
   --top-action-group-separate: #ededf6;
   --dropdown-bg-color: #292e39;
   --dropdown-shadow: rgba(23, 28, 40, 0.4);
-  --dropdown-arrow-color: brightness(0) saturate(100%) invert(23%) sepia(9%)
-    saturate(1370%) hue-rotate(185deg) brightness(98%) contrast(87%);
+  --dropdown-arrow-color: brightness(0) saturate(100%) invert(17%) sepia(9%)
+    saturate(1138%) hue-rotate(183deg) brightness(96%) contrast(95%);
+  --top-menu-border-color: #171c28;
 }
 
 html {
@@ -1202,6 +1257,7 @@ html {
   --top-action-group-separate: #ededf6;
   --dropdown-bg-color: #fff;
   --dropdown-shadow: rgba(200, 200, 200, 0.4);
+  --top-menu-border-color: #d2d1d6;
 }
 @media (max-width: 991.98px) {
   html {

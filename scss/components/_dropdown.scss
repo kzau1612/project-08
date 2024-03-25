@@ -2,10 +2,13 @@
   position: absolute;
   left: 0;
   padding-top: 54px;
-  display: none;
+  // display: none;
+
+  width: min(1240px, 100%);
 
   &__inner {
     position: relative;
+    max-height: min(582px, 100vh - 158px);
     padding: 30px;
     border-radius: 2rem;
     background: var(--dropdown-bg-color);
@@ -14,11 +17,75 @@
     &::before {
       content: url("../icon/dropdown-arrow.svg");
       position: absolute;
-      z-index: -1;
       top: -13px;
       left: var(--arrow-left-pos);
       translate: -50%;
       filter: var(--dropdown-arrow-color);
+    }
+  }
+
+  .top-menu {
+    height: 100%;
+
+    &__main {
+      width: 292px;
+      height: 100%;
+      border-right: 1px solid var(--top-menu-border-color);
+    }
+  }
+
+  .menu-column {
+    display: flex;
+    column-gap: 14px;
+
+    &__icon {
+      flex-shrink: 0;
+      position: relative;
+      width: 36px;
+      height: 36px;
+    }
+
+    &__content {
+      flex: 1;
+    }
+
+    &__icon-1 {
+      object-fit: cover;
+      width: 30px;
+      height: 30px;
+    }
+
+    &__icon-2 {
+      object-fit: cover;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+
+    &__heading {
+      margin-top: 6px;
+      font-size: 1.6rem;
+      font-weight: 500;
+      line-height: 150%; /* 150% */
+    }
+
+    &__list {
+      margin-top: 19px;
+    }
+
+    &__link {
+      display: block;
+      padding: 7px 0;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 142.857%; /* 142.857% */
+    }
+
+    &__link:hover {
+      color: #0071dc;
+      font-weight: 500;
     }
   }
 }
