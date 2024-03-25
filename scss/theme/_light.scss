@@ -13,4 +13,8 @@ html {
   @include abtracts.breakpoint(lg) {
     --header-bg-color: #fff;
   }
+
+  //dropdown
+  --dropdown-bg-color: #fff;
+  --dropdown-shadow: rgba(200, 200, 200, 0.4);
 }
