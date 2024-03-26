@@ -73,7 +73,7 @@
   }
 }
 
-.top-action {
+.top-act {
   @extend %flexItemCenter;
   column-gap: 20px;
   margin-left: auto;
@@ -84,11 +84,11 @@
 
   &__group {
     @extend %flexItemCenter;
-    background: var(--top-action-group-bg-color);
+    background: var(--top-act-group-bg-color);
     border-radius: 8px;
     min-width: 50px;
     min-height: 50px;
-    box-shadow: 0px 20px 60px 10px var(--top-action-group-shadow);
+    box-shadow: 0px 20px 60px 10px var(--top-act-group-shadow);
 
     @include abtracts.breakpoint(md) {
       display: none;
@@ -121,7 +121,7 @@
   &__separate {
     width: 1px;
     height: 30px;
-    background: var(--top-action-group-separate);
+    background: var(--top-act-group-separate);
   }
 
   &__avatar {
