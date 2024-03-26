@@ -10,7 +10,7 @@
     margin-left: 40px;
   }
 
-  @include abtracts.breakpoint(sm) {
+  @include abtracts.breakpoint(md) {
     margin-left: 0;
   }
 

@@ -7,9 +7,11 @@
   width: min(1240px, 100%);
 
   &__inner {
+    --inner-max-height: min(582px, 100vh - 158px);
+    --inner-padding: 30px;
     position: relative;
-    max-height: min(582px, 100vh - 158px);
-    padding: 30px;
+    max-height: var(--inner-max-height);
+    padding: var(--inner-padding);
     border-radius: 2rem;
     background: var(--dropdown-bg-color);
     box-shadow: 0px 40px 90px 20px var(--dropdown-shadow);
@@ -25,12 +27,13 @@
   }
 
   .top-menu {
-    height: 100%;
+    max-height: calc(var(--inner-max-height) - var(--inner-padding) * 2);
 
     &__main {
       width: 292px;
-      height: 100%;
+      max-height: inherit;
       border-right: 1px solid var(--top-menu-border-color);
+      overflow-y: auto;
     }
   }
 
@@ -62,6 +65,7 @@
       position: absolute;
       right: 0;
       bottom: 0;
+      filter: var(--menu-column-icon-color);
     }
 
     &__heading {
