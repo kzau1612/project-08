@@ -1155,87 +1155,98 @@ select {
 .dropdown {
   position: absolute;
   left: 0;
-  padding-top: 54px;
   width: min(1240px, 100%);
+  padding-top: 54px;
+  display: none;
 }
 .dropdown__inner {
   --inner-padding: 30px;
   position: relative;
   padding: var(--inner-padding);
-  border-radius: 2rem;
+  border-radius: 20px;
   background: var(--dropdown-bg-color);
-  box-shadow: 0px 40px 90px 20px var(--dropdown-shadow);
+  box-shadow: 0px 40px 90px 20px var(--dropdown-shadow-color);
 }
 .dropdown__inner::before {
-  content: url("../icon/dropdown-arrow.svg");
+  content: url("../icons/dropdown-arrow.svg");
   position: absolute;
   top: -13px;
   left: var(--arrow-left-pos);
   translate: -50%;
   filter: var(--dropdown-arrow-color);
 }
-.dropdown .top-menu {
+
+.top-menu {
   --main-column-width: 292px;
+  --max-inner-height: calc(min(582px, 100vh - 158px) - var(--inner-padding) * 2);
   position: relative;
 }
-.dropdown .top-menu__main {
+.top-menu__main {
   width: var(--main-column-width);
-  height: calc(min(582px, 100vh - 158px) - var(--inner-padding) * 2);
+  height: var(--max-inner-height);
   border-right: 1px solid var(--top-menu-border-color);
   overflow-y: auto;
 }
-.dropdown .menu-column {
+
+.menu-column {
   display: flex;
-  column-gap: 14px;
+  gap: 14px;
 }
-.dropdown .menu-column + .menu-column {
+.menu-column + .menu-column {
   margin-top: var(--inner-padding);
+  margin-top: 22px;
 }
-.dropdown .menu-column__icon {
-  flex-shrink: 0;
+.menu-column__icon {
   position: relative;
+  flex-shrink: 0;
   width: 36px;
   height: 36px;
 }
-.dropdown .menu-column__content {
+@media (max-width: 1199.98px) {
+  .menu-column__icon {
+    display: none;
+  }
+}
+.menu-column__content {
   flex: 1;
 }
-.dropdown .menu-column__icon-1 {
-  object-fit: cover;
+.menu-column__icon-1 {
   width: 30px;
   height: 30px;
-}
-.dropdown .menu-column__icon-2 {
   object-fit: cover;
-  width: 24px;
-  height: 24px;
+  object-fit: contain;
+}
+.menu-column__icon-2 {
   position: absolute;
   right: 0;
   bottom: 0;
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  object-fit: contain;
   filter: var(--menu-column-icon-color);
 }
-.dropdown .menu-column__heading {
-  margin-top: 6px;
+.menu-column__heading {
+  margin-top: 4px;
   font-size: 1.6rem;
   font-weight: 500;
-  line-height: 150%; /* 150% */
+  line-height: 150%;
 }
-.dropdown .menu-column__list {
+.menu-column__list {
   margin-top: 19px;
 }
-.dropdown .menu-column__item:hover .sub-menu {
+.menu-column__item--active .sub-menu {
   display: grid;
 }
-.dropdown .menu-column__item:hover .dropdown .menu-column__link {
+.menu-column__item--active > .menu-column__link, .menu-column__item:hover > .menu-column__link {
   color: #0071dc;
   font-weight: 500;
 }
-.dropdown .menu-column__link {
+.menu-column__link {
   display: block;
   padding: 7px 0;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 142.857%; /* 142.857% */
+  font-size: 1.4rem;
+  line-height: 142.857%;
 }
 
 .sub-menu {
@@ -1243,8 +1254,17 @@ select {
   inset: 0 0 0 var(--main-column-width);
   display: none;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: var(--inner-padding);
   padding-left: var(--inner-padding);
+  overflow-y: auto;
+}
+.sub-menu--not-main {
+  position: initial;
+  inset: initial;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: var(--max-inner-height);
+  padding-left: 0;
 }
 
 html.dark {
@@ -1272,8 +1292,8 @@ html.dark {
 
 html {
   --text-color: #1a162e;
-  --icon-color: brightness(0) saturate(100%) invert(8%) sepia(17%)
-    saturate(2603%) hue-rotate(213deg) brightness(93%) contrast(95%);
+  --icon-color: brightness(0) saturate(100%) invert(8%) sepia(17%) saturate(2603%) hue-rotate(213deg) brightness(93%)
+    contrast(95%);
   --body-bg: #f6f6f6;
   --header-bg-color: #eeeeee;
   --top-action-group-bg-color: #fff;
@@ -1282,6 +1302,8 @@ html {
   --dropdown-bg-color: #fff;
   --dropdown-shadow: rgba(200, 200, 200, 0.4);
   --top-menu-border-color: #d2d1d6;
+  --menu-column-icon-color: brightness(0) saturate(100%) invert(8%) sepia(35%) saturate(948%) hue-rotate(210deg)
+    brightness(102%) contrast(98%);
 }
 @media (max-width: 991.98px) {
   html {

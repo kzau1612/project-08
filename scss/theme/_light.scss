@@ -1,8 +1,8 @@
 @use "../abtracts";
 html {
   --text-color: #1a162e;
-  --icon-color: brightness(0) saturate(100%) invert(8%) sepia(17%)
-    saturate(2603%) hue-rotate(213deg) brightness(93%) contrast(95%);
+  --icon-color: brightness(0) saturate(100%) invert(8%) sepia(17%) saturate(2603%) hue-rotate(213deg) brightness(93%)
+    contrast(95%);
 
   --body-bg: #f6f6f6;
   --header-bg-color: #eeeeee;
@@ -19,4 +19,6 @@ html {
   --dropdown-bg-color: #fff;
   --dropdown-shadow: rgba(200, 200, 200, 0.4);
   --top-menu-border-color: #d2d1d6;
+  --menu-column-icon-color: brightness(0) saturate(100%) invert(8%) sepia(35%) saturate(948%) hue-rotate(210deg)
+    brightness(102%) contrast(98%);
 }
